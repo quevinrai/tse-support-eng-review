@@ -5,7 +5,7 @@ import time
 start_time = time.time()
 
 async def get_pokemon(session, url):
-    async with session.get(url, auth=aiohttp.BasicAuth('quevin.bambasi@color.com', 'ATATT3xFfGF0nmm-UxjoHxE4wO3HGuSjPdDLb4kEvpDJUN64yPmxJanltvCktZOZDlvMfB6DBBfYDOt3hw9WAlWpcu3IVUaZr-gayRnPZmF7l405063Zx5n5QvRZbBxKvd65EI5g6i3RPFG4tRq34eLlbf5W4enWvVXdQVsqIULUIzQSxwSLmU4=CD442241')) as resp:
+    async with session.get(url, auth=aiohttp.BasicAuth('quevin.bambasi@color.com', '')) as resp:
         pokemon = await resp.json()
         return pokemon['total']
 
