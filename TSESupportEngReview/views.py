@@ -6,7 +6,7 @@ from jira.models import MonthlyQuickNumber
 def home(request):
     data = MonthlyQuickNumber.objects.all()
     print(data.values()[0]['url_param_value'])
-    
+
     return render(request, 'TSESupportEngReview/index.html')
 
 def month_year(request, month, year):
