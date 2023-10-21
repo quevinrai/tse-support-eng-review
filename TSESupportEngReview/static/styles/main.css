@@ -4,3 +4,30 @@
     box-sizing: border-box;
 }
 
+main {
+    width: clamp(940px, 75%, 1280px);
+    margin: 0 auto;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+}
+
+#section-splitview {
+    display: grid;
+    grid-template-areas: "sectionSplitViewLeft sectionSplitViewRight";
+    grid-template-columns: 50% 50%;
+}
+
+#section-splitview-left {
+    grid-area: sectionSplitViewLeft;
+    display: flex;
+    flex-direction: column;
+}
+
+#section-splitview-right {
+    grid-area: sectionSplitViewRight;
+    display: flex;
+    flex-direction: column;
+}
