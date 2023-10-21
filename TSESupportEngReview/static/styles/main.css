@@ -4,10 +4,18 @@
     box-sizing: border-box;
 }
 
+/****************/
+/*     MAIN     */
+/****************/
+
 main {
     width: clamp(720px, 75%, 1280px);
     margin: 0 auto;
 }
+
+/*******************/
+/*     SECTION     */
+/*******************/
 
 .section {
     display: flex;
@@ -31,6 +39,14 @@ main {
     display: flex;
     flex-direction: column;
 }
+
+#section-1 ul {
+    list-style-type: none;
+}
+
+/*************************/
+/*     MEDIA QUERIES     */
+/*************************/
 
 @media screen and (max-width: 940px) {
     #section-splitview {
