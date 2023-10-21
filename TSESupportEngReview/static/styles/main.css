@@ -5,7 +5,7 @@
 }
 
 main {
-    width: clamp(940px, 75%, 1280px);
+    width: clamp(720px, 75%, 1280px);
     margin: 0 auto;
 }
 
@@ -30,4 +30,14 @@ main {
     grid-area: sectionSplitViewRight;
     display: flex;
     flex-direction: column;
+}
+
+@media screen and (max-width: 940px) {
+    #section-splitview {
+        grid-template-areas: none;
+        grid-template-columns: none;
+
+        display: flex;
+        flex-direction: column;
+    }
 }
