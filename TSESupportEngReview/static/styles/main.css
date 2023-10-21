@@ -22,6 +22,15 @@ main {
     flex-direction: column;
 }
 
+.section:not(#section-intro):not(#section-outro)::before {
+    content: "";
+    background-color: #321D70;
+    border: 1px solid #321D70;
+    width: 40px;
+    height: 3px;
+    margin-block: 1em;
+}
+
 #section-splitview {
     display: grid;
     grid-template-areas: "sectionSplitViewLeft sectionSplitViewRight";
@@ -39,6 +48,8 @@ main {
     display: flex;
     flex-direction: column;
 }
+
+/* SECTION 1: MONTHLY QUICK NUMBERS */
 
 #section-1 ul {
     list-style-type: none;
