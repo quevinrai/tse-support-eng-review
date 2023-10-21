@@ -4,18 +4,14 @@
     box-sizing: border-box;
 }
 
-/****************/
-/*     MAIN     */
-/****************/
+/* MAIN */
 
 main {
     width: clamp(720px, 75%, 1280px);
     margin: 0 auto;
 }
 
-/*******************/
-/*     SECTION     */
-/*******************/
+/* SECTION */
 
 .section {
     display: flex;
@@ -49,15 +45,15 @@ main {
     flex-direction: column;
 }
 
-/* SECTION 1: MONTHLY QUICK NUMBERS */
+/* SECTION INTRO: Title, Month, and Year */
+
+/* SECTION 1: Monthly Quick Numbers */
 
 #section-1 ul {
     list-style-type: none;
 }
 
-/*************************/
-/*     MEDIA QUERIES     */
-/*************************/
+/* MEDIA QUERIES */
 
 @media screen and (max-width: 940px) {
     #section-splitview {
