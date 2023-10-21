@@ -13,41 +13,39 @@
     </head>
     <body>
         <main>
-            <section class="section section-splitview-left" id="section-intro">
-
-            </section>
-            <h1>{{ month }} {{ year }}</h1>
-
-            <section class="section section-splitview-left" id="section-1">
-                <h2>Section 1: {{ month }} Quick Numbers</h2>
-                <ul>
-                    <li>#: Inbound Support Eng Requests</li>
-                    <li>#: Resolved Support Eng tickets</li>
-                    <li>#: Issues resolved by TSEs</li>
-                    <li>#: TSE escalated issues to engineering</li>
-                    <li>#: New feature requests submitted</li>
-                    <li>#: Incidents Called (# called after resolution)</li>
-                    <li>#: Hi Priority (SEV0 or SEV1)</li>
-                    <li>#: Incident impacted SUPPORT tickets</li>
-                    <li>#: Postmortem Meetings held</li>
-                    <li>#: Bugs (# regressions)</li>
-                    <li>[eng_team]: Eng team with highest Support-eng ticket ownership (#)</li>
-                    <li>[resolution_action]: Top resolution action (#)</li>
-                    <li>[db_write_area]: Top database write product area (#)</li>
-                </ul>
-            </section>
-
-            <section class="section section-splitview-right" id="section-2">
-                <h2>Section 2: TSE Headlines and Highlights</h2>
-                <p>Of the 76 non urgent (P2-P4) issues that were resolved in September, # issues were not first triaged by one of the TSE members. This trend up was a result of issues manually getting assigned to engineers after being filed.</p>
-                <p>Of the 76 non urgent (P2-P4) issues TSE triaged first, # TSEs received help from engineers but was able to own, 32 needed engineering to take over.</p>
-                <p>TSE owned 52% (Down -2% from June) of the non urgent issues.</p>
-                <p>TSE handled 22% of the urgent issues in September.</p>
-            </section>
-
-            <section class="section section-splitview-right" id="section-3">
-                <h2>Section 3: Projects and Processes</h2>
-                <p>No data required.</p>
+            <section class="section-splitview">
+                <section class="section section-splitview-left" id="section-intro">
+                </section>
+                <h1>{{ month }} {{ year }}</h1>
+                <section class="section section-splitview-left" id="section-1">
+                    <h2>Section 1: {{ month }} Quick Numbers</h2>
+                    <ul>
+                        <li>#: Inbound Support Eng Requests</li>
+                        <li>#: Resolved Support Eng tickets</li>
+                        <li>#: Issues resolved by TSEs</li>
+                        <li>#: TSE escalated issues to engineering</li>
+                        <li>#: New feature requests submitted</li>
+                        <li>#: Incidents Called (# called after resolution)</li>
+                        <li>#: Hi Priority (SEV0 or SEV1)</li>
+                        <li>#: Incident impacted SUPPORT tickets</li>
+                        <li>#: Postmortem Meetings held</li>
+                        <li>#: Bugs (# regressions)</li>
+                        <li>[eng_team]: Eng team with highest Support-eng ticket ownership (#)</li>
+                        <li>[resolution_action]: Top resolution action (#)</li>
+                        <li>[db_write_area]: Top database write product area (#)</li>
+                    </ul>
+                </section>
+                <section class="section section-splitview-right" id="section-2">
+                    <h2>Section 2: TSE Headlines and Highlights</h2>
+                    <p>Of the 76 non urgent (P2-P4) issues that were resolved in September, # issues were not first triaged by one of the TSE members. This trend up was a result of issues manually getting assigned to engineers after being filed.</p>
+                    <p>Of the 76 non urgent (P2-P4) issues TSE triaged first, # TSEs received help from engineers but was able to own, 32 needed engineering to take over.</p>
+                    <p>TSE owned 52% (Down -2% from June) of the non urgent issues.</p>
+                    <p>TSE handled 22% of the urgent issues in September.</p>
+                </section>
+                <section class="section section-splitview-right" id="section-3">
+                    <h2>Section 3: Projects and Processes</h2>
+                    <p>No data required.</p>
+                </section>
             </section>
 
             <section class="section" id="section-4">
