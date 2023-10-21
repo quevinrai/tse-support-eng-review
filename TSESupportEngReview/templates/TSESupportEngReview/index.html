@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,7 +8,7 @@
         <title>TSE Support Eng Review</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="{% static "styles/main.css" %}">
         <script src=""></script>
     </head>
     <body>
@@ -14,7 +16,7 @@
             <h1>{{ month }} {{ year }}</h1>
 
             <section>
-                <h2>Section 1: September Quick Numbers</h2>
+                <h2>Section 1: {{ month }} Quick Numbers</h2>
                 <ul>
                     <li>#: Inbound Support Eng Requests</li>
                     <li>#: Resolved Support Eng tickets</li>
