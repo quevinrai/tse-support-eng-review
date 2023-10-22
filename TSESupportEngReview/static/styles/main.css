@@ -28,7 +28,7 @@ h2 {
 main {
     width: clamp(720px, 75%, 900px);
     margin: 1em auto;
-    padding: 2em 8em;
+    padding: 2em 6em;
     border: 1px solid black;
     background-color: #FFF;
 }
@@ -50,6 +50,23 @@ main > .section > *:not(:first-child) {
     width: 40px;
     height: 3px;
     margin-block: 1em;
+}
+
+.section > .container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 90%;
+}
+
+.section > .container .responsive-iframe {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 #section-splitview {
@@ -92,6 +109,20 @@ main > .section > *:not(:first-child) {
 
 #section-1 ul {
     list-style-type: none;
+}
+
+/* SECTION 4: Ticket Resolution Trends */
+
+
+
+/* SECTION 7: Incident Management */
+
+#section-7 ul {
+    list-style-type: none;
+}
+
+#section-7 ul li {
+    margin-block: 0.6em;
 }
 
 /* MEDIA QUERIES */
