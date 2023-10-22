@@ -2,19 +2,39 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #F9FBFD;
 }
 
 h1 {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 500;
     font-size: 2rem;
     color: #353743;
+}
+
+h2 {
+    font-family: 'Figtree', sans-serif;
+    font-size: 1.2rem;
+    color: #321D70;
+    margin-bottom: 0.8em;
 }
 
 /* MAIN */
 
 main {
-    width: clamp(720px, 75%, 1080px);
-    margin: 0 auto;
-    padding-inline: 5em;
+    width: clamp(720px, 75%, 900px);
+    margin: 1em auto;
+    padding: 2em 8em;
+    border: 1px solid black;
+    background-color: #FFF;
+}
+
+main > .section > *:not(:first-child) {
+    margin-block: 0.6em;
 }
 
 /* SECTION */
@@ -27,7 +47,6 @@ main {
 .section:not(#section-intro):not(#section-outro)::before {
     content: "";
     background-color: #321D70;
-    border: 1px solid #321D70;
     width: 40px;
     height: 3px;
     margin-block: 1em;
@@ -55,6 +74,8 @@ main {
 /* SECTION INTRO: Title, Month, and Year */
 
 #section-intro-title {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
     font-size: 3rem;
 }
 
@@ -64,7 +85,7 @@ main {
 }
 
 #section-intro img {
-    max-width: 50%;
+    max-width: 80%;
 }
 
 /* SECTION 1: Monthly Quick Numbers */
