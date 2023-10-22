@@ -4,11 +4,17 @@
     box-sizing: border-box;
 }
 
+h1 {
+    font-size: 2rem;
+    color: #353743;
+}
+
 /* MAIN */
 
 main {
-    width: clamp(720px, 75%, 1280px);
+    width: clamp(720px, 75%, 1080px);
     margin: 0 auto;
+    padding-inline: 5em;
 }
 
 /* SECTION */
@@ -31,6 +37,7 @@ main {
     display: grid;
     grid-template-areas: "sectionSplitViewLeft sectionSplitViewRight";
     grid-template-columns: 50% 50%;
+    gap: 2rem;
 }
 
 #section-splitview-left {
@@ -46,6 +53,19 @@ main {
 }
 
 /* SECTION INTRO: Title, Month, and Year */
+
+#section-intro-title {
+    font-size: 3rem;
+}
+
+#section-intro a:active,
+#section-intro a:visited {
+    color: #2854C5;
+}
+
+#section-intro img {
+    max-width: 50%;
+}
 
 /* SECTION 1: Monthly Quick Numbers */
 
