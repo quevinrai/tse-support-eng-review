@@ -21,7 +21,7 @@
                         <img src="{% static "images/tse_logo.png" %}">
                     </section>
                     <section class="section" id="section-1">
-                        <h2>Section 1: {{ month }} Quick Numbers</h2>
+                        <h2>{{ month }} Quick Numbers</h2>
                         <ul>
                             <li>#: Inbound Support Eng Requests</li>
                             <li>#: Resolved Support Eng tickets</li>
@@ -42,34 +42,34 @@
 
                 <section id="section-splitview-right">
                     <section class="section" id="section-2">
-                        <h2>Section 2: TSE Headlines and Highlights</h2>
+                        <h2>TSE Headlines and Highlights</h2>
                         <p>Of the 76 non urgent (P2-P4) issues that were resolved in September, # issues were not first triaged by one of the TSE members. This trend up was a result of issues manually getting assigned to engineers after being filed.</p>
                         <p>Of the 76 non urgent (P2-P4) issues TSE triaged first, # TSEs received help from engineers but was able to own, 32 needed engineering to take over.</p>
                         <p>TSE owned 52% (Down -2% from June) of the non urgent issues.</p>
                         <p>TSE handled 22% of the urgent issues in September.</p>
                     </section>
                     <section class="section" id="section-3">
-                        <h2>Section 3: Projects and Processes</h2>
+                        <h2>Projects and Processes</h2>
                         <p>No data required.</p>
                     </section>
                 </section>
             </section>
 
             <section class="section" id="section-4">
-                <h2>Section 4: Ticket Resolution Trends</h2>
+                <h2>Ticket Resolution Trends</h2>
                 <p>Database writes continued to top the resolution action taken in September, accounting for 36 tickets (40%) of the total resolved tickets for the month, an increase of +5% from June.</p>
                 <p>In September, 11 tickets (12%) of the total issues resolved were caused by bugs. This is up +2% over last month, only 1 of these bugs was a regression. We can see this distribution of bugs across the product areas in the following table: “Django Admin or Clinical” had the highest concentration of support impacted tickets followed by “Research” and “Results”.</p>
                 <p>Trends around the top 2 (DB Write and Bug) remained consistent however the 3rd highest resolving action is under the “By Design” category. An upswing in tickets that fall under this category is usually an indication that there is confusion or questions that could benefit from documentation or training to prevent in the future.</p>
             </section>
 
             <section class="section" id="section-5">
-                <h2>Section 5: Response and Resolution Time</h2>
+                <h2>Response and Resolution Time</h2>
                 <p>This month, we saw response times go back up but remain close to the target of first response time goals. We attribute this to the adoption and conscious effort teams have made to update JIRA tickets as well as slack.  TSE will continue to proactively reach out in tickets to ensure first responses and updates are added in the comments.</p>
                 <p>[Add content: Details for each priority category]</p>
             </section>
 
             <section class="section" id="section-6">
-                <h2>Section 6: TSE Impact and Opportunity</h2>
+                <h2>TSE Impact and Opportunity</h2>
                 <p>The TSE  “gate” continues to show positive trends with the TSE ownership of triaging P2, P3 and P4 (non-urgent) tickets in Support Engineering.</p>
                 <p>TSEs closed 52% of non-urgent and 22% of urgent support tickets this month! This is a drop of -3% of the non urgent issue ownership over the month of June. As new products and processes have rolled out over September, the engineering teams have more tickets as TSE up-ramps on the new work needed to resolve or assist on issues.</p>
                 <p>Each ticket in Support Eng is aligned with a part of the product based on the root cause of the issue.  We can see the work handled by TSE and the engineering team as it pertains to the different areas of the product below, looking at the portion of tickets owned by each group over the course of September.</p>
@@ -78,7 +78,7 @@
             </section>
 
             <section class="section" id="section-7">
-                <h2>Section 7: Incident Management</h2>
+                <h2>Incident Management</h2>
                 <p>Let's start our incident management journey with a look at the volume of incidents that were reported in PagerDuty. In July, there were 32 events triggered, but not all these events in PagerDuty reflect incidents or impacts to our services that we want to focus on. Instead we want to focus on the High-Urgency incidents within PagerDuty. We can start by looking at the volume of these High Urgency issues across the month. Understanding when incidents were triggered can help us see patterns between launches and deployments. We can see across the following chart response and resolution average times for incidents by day.</p>
                 <p>We can then take these volumes and statistics and cross it with last month to get a feel for the impacts month over month.</p>
                 <p>The incident itself is one metric that is important, but often an incident involves additional work called action items that are tracked as separate tickets. For this piece of data, we take a look at all the tickets across all the product engineering teams, and look for the tickets with the ‘incident_managment” label. In July, we saw 12 new tickets generated as a result of incidents, the largest concentration of tickets is 3 handled by the LabX team.</p>
@@ -94,7 +94,7 @@
             </section>
 
             <section class="section" id="section-8">
-                <h2>Section 8: Feature Requests</h2>
+                <h2>Feature Requests</h2>
                 <p>September was a slow month for inspiration with only 2 new feature requests submitted. With the implementation of Product area across all jira projects we can view these new requests by what part of the product the request pertains to, even before teams pick up the work.</p>
                 <p>3 feature requests were productized in July and set to DONE.  This is independent of the cleanup efforts on the Feature Request backlog.  Congratulations to Precision Care for leading the charge with moving 2 feature requests to production.</p>
                 <p>Open Feature Requests tickets dropped 24% to 211 as clean up on the feature request backlog continued. However this is still considered high for open requests in the process of or waiting to be built. TSE is continuing to work through the older tickets in an effort to clean up and remove outdated or done tasks, but with Q3 now upon us don’t forget to check out the feature request backlog to see if there is something there that overlaps with work that is being planned or inflight.</p>
