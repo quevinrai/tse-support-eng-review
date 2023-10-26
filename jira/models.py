@@ -6,7 +6,7 @@ class MonthlyQuickNumber(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=250, blank=True)
     jql = models.TextField()
-    url_param = models.TextField(default='')
+    url_parameter = models.TextField(default='')
 
     def __str__(self):
         return self.name
