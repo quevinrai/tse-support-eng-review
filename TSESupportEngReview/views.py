@@ -1,70 +1,91 @@
-import re
-import datetime
 import calendar
 
 from datetime import datetime
 from django.shortcuts import render, redirect
 from jira.models import MonthlyQuickNumber
 
-"""
-FUNCTION-BASED VIEWS
-"""
+""" CLASS """
+
+class C(object):
+    def __init__(self):
+        self._month = None
+        self._year = None
+        self._month_number = None
+        self._year_number = None
+        self._previous_month = None
+        self._current_month = None
+
+    """ Getters """
+    @property
+    def month(self):
+        return self._month
+
+    @property
+    def year(self):
+        return self._year
+
+    @property
+    def month_number(self):
+        return self._month_number
+
+    @property
+    def year_number(self):
+        return self._year_number
+
+    @property
+    def previous_month(self):
+        return self._previous_month
+
+    @property
+    def current_month(self):
+        return self._current_month
+
+    """ Setters """
+    @month.setter
+    def month(self, value):
+        self._month = value
+
+    @year.setter
+    def year(self, value):
+        self._year = value
+
+    @month_number.setter
+    def month_number(self, value):
+        self._month_number = value
+
+    @year_number.setter
+    def year_number(self, value):
+        self._year_number = value
+
+    @previous_month.setter
+    def previous_month(self, value):
+        self._previous_month = value
+
+    @current_month.setter
+    def current_month(self, value):
+        self._current_month = value
+
+c = C()
+
+""" FUNCTION-BASED VIEWS """
 
 def home(request):
-    current_month = datetime.now().replace(day=1)
-    current_month_full = datetime.now().strftime('%B')
-    current_month_num = datetime.now().strftime('%m')
-    current_year = datetime.now().strftime('%Y')
-
-    # previous_month = (datetime.utcnow().replace(day=1) - timedelta(days=1)).replace(day=1)
-    # print(f'Previous month: {previous_month.strftime("%Y")}-{previous_month.strftime("%m")}-{previous_month.strftime("%d")}')
-    # print(f'Previous month: {current_month.strftime("%Y")}-{current_month.strftime("%m")}-{current_month.strftime("%d")}')
-
-    new_created_date_gte = f'created >= {current_year}-{current_month_num}-01'
-    new_created_date_lte = f'created <= {current_year}-{current_month_num}-01'
-
-    data = MonthlyQuickNumber.objects.all()
-    created_gte = re.sub('created\s>=\s(\d{4})-(\d{2})-(\d{2})', new_created_date_gte, data.values()[0]['jql'])
-    # print(created_gte)
-
-    context = {
-        'month': current_month_full,
-        'year': current_year
-    }
-
-    return render(request, 'TSESupportEngReview/index.html', context)
+    return render(request, 'TSESupportEngReview/index.html')
 
 def month_year(request, month, year):
-    try:
-        year_number = int(year)
-    except Exception:
-        print('ERROR: Invalid year was entered.')
-        return redirect('/')
 
-    try:
-        month_number = int(month)
-        month = calendar.month_name[month_number]
-    except ValueError:
-        try:
-            month_number = datetime.strptime(month, '%b').month if len(month) == 3 else datetime.strptime(month, '%B').month
-            month = calendar.month_name[month_number] if len(month) == 3 else month
-        except ValueError:
-            print('ERROR: Invalid month was entered.')
-            return redirect('/')
+    """ Validate URL parameter values """
+    validate_month_year(month, year)
 
-    current_month = get_current_month(year_number, month_number)
-    previous_month = get_previous_month(year_number, month_number)
-
-    print(f'Previous month: {previous_month}')
-    print(f'Current month: {current_month}')
+    print(f'Previous month: {c.previous_month}')
+    print(f'Current month: {c.current_month}')
 
     data = MonthlyQuickNumber.objects.all()
     data_monthly_quick_numbers = dict()
 
-    temp_str = data.values()[0]['url_param']
-    new_temp_str = temp_str.replace('2023-05-01', previous_month).replace('2023-06-01', current_month)
-
-    data_monthly_quick_numbers[data.values()[0]['name']] = new_temp_str
+    for x in range(len(data)):
+        data_url_parameter = data.values()[x]['url_parameter'].replace('0000-00-01', c.previous_month).replace('1000-00-01', c.current_month)
+        data_monthly_quick_numbers[data.values()[x]['name']] = data_url_parameter
 
     print(data_monthly_quick_numbers)
 
@@ -73,20 +94,43 @@ def month_year(request, month, year):
         'year': year
     }
 
-    return render(request, 'TSESupportEngReview/index.html', context)
+    return render(request, 'TSESupportEngReview/09_2023.html', context)
 
-"""
-UTILITY FUNCTIONS
-"""
+""" UTILITY FUNCTIONS """
 
-def update_created_date(previous_month, current_month, data):
-    pass
+def validate_month_year(month, year):
+    """ Validation for 'year' url parameter
+    • Check if 'year' value can be converted to an integer.
+    • If not successful, throw exception and return to 'home' path.
+    """
+    try:
+        c.year_number = int(year)
+    except Exception:
+        print('ERROR: Invalid year was entered.') # Replace with Django FlashMessages
+        return redirect('/')
 
-def get_current_month(year, month, day = 1):
-    return f'{year}-0{month}-0{day}' if len(str(month)) == 1 else f'{year}-{month}-0{day}'
+    """ Validation for 'month' url parameter
+    • Check if 'month' value is a valid month name.
+    """
+    try:
+        c.month_number = int(month)
+        month = calendar.month_name[c.month_number]
+    except ValueError:
+        try:
+            c.month_number = datetime.strptime(month, '%b').month if len(month) == 3 else datetime.strptime(month, '%B').month
+            month = calendar.month_name[c.month_number] if len(month) == 3 else month
+        except ValueError:
+            print('ERROR: Invalid month was entered.') # Replace with Django FlashMessages
+            return redirect('/')
 
-def get_previous_month(year, month, day = 1):
-    if month == 1:
-        return f'{year - 1}-12-0{day}'
+    set_previous_month()
+    set_current_month()
+
+def set_current_month():
+    c.current_month = f'{c.year_number}-0{c.month_number}-01' if len(str(c.month_number)) == 1 else f'{c.year_number}-{c.month_number}-01'
+
+def set_previous_month():
+    if c.month_number == 1:
+        c.previous_month = f'{c.year_number - 1}-12-01'
     else:
-        return f'{year}-0{month - 1}-0{day}' if len(str(month)) == 1 else f'{year}-{month - 1}-0{day}'
+        c.previous_month = f'{c.year_number}-0{c.month_number - 1}-01' if len(str(c.month_number)) == 1 else f'{c.year_number}-{c.month_number - 1}-01'
