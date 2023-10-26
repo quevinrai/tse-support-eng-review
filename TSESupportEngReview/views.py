@@ -1,6 +1,6 @@
 import calendar
-import TSESupportEngReview.tse_data as tse_data
 
+from TSESupportEngReview import tse_data
 from datetime import datetime
 from django.shortcuts import render, redirect
 
