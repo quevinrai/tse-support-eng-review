@@ -1,8 +1,8 @@
 import calendar
+import TSESupportEngReview.tse_data as tse_data
 
 from datetime import datetime
 from django.shortcuts import render, redirect
-from jira.models import MonthlyQuickNumber
 
 """ CLASS """
 class C(object):
@@ -79,12 +79,7 @@ def month_year(request, month, year):
     print(f'Previous month: {c.previous_month}')
     print(f'Current month: {c.current_month}')
 
-    data = MonthlyQuickNumber.objects.all()
-    data_monthly_quick_numbers = dict()
-
-    for x in range(len(data)):
-        data_url_parameter = data.values()[x]['url_parameter'].replace('0000-00-01', c.previous_month).replace('1000-00-01', c.current_month)
-        data_monthly_quick_numbers[data.values()[x]['name']] = data_url_parameter
+    data_monthly_quick_numbers = tse_data.get_data_monthly_quick_numbers(c.previous_month, c.current_month)
 
     print(data_monthly_quick_numbers)
 
