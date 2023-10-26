@@ -5,7 +5,6 @@ from django.shortcuts import render, redirect
 from jira.models import MonthlyQuickNumber
 
 """ CLASS """
-
 class C(object):
     def __init__(self):
         self._month = None
